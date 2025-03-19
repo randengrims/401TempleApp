@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "401TempleApp.API", "backend\401TempleApp.API\401TempleApp.API.csproj", "{8660EDDE-3A5A-B2B6-41C8-F86CB208ADFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8660EDDE-3A5A-B2B6-41C8-F86CB208ADFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8660EDDE-3A5A-B2B6-41C8-F86CB208ADFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8660EDDE-3A5A-B2B6-41C8-F86CB208ADFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8660EDDE-3A5A-B2B6-41C8-F86CB208ADFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {512AE2ED-AFDF-42D0-BFE5-2961ABF9E7F2}
+	EndGlobalSection
+EndGlobal

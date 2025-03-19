@@ -1,0 +1,6 @@
+@_401TempleApp.API_HostAddress = http://localhost:5220
+
+GET {{_401TempleApp.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

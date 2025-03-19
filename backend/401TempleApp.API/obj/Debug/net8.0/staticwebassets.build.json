@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "1glEiLrPd50ZaSy+55MqauQtfJw3h7N47zmY5HYvihI=",
+  "Source": "401TempleApp.API",
+  "BasePath": "_content/401TempleApp.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
