@@ -2857,24 +2857,31 @@
     ]
   },
   "packageFolders": {
-    "/Users/tracewilson/.nuget/packages/": {}
+    "C:\\Users\\Navin\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/tracewilson/RiderProjects/401TempleApp/backend/401TempleApp/401TempleApp/401TempleApp.csproj",
+      "projectUniqueName": "C:\\Users\\Navin\\OneDrive\\Desktop\\BYU Winter 2025\\IS 401\\401TempleApp\\401TempleApp\\401TempleApp\\backend\\401TempleApp\\401TempleApp\\401TempleApp.csproj",
       "projectName": "401TempleApp",
-      "projectPath": "/Users/tracewilson/RiderProjects/401TempleApp/backend/401TempleApp/401TempleApp/401TempleApp.csproj",
-      "packagesPath": "/Users/tracewilson/.nuget/packages/",
-      "outputPath": "/Users/tracewilson/RiderProjects/401TempleApp/backend/401TempleApp/401TempleApp/obj/",
+      "projectPath": "C:\\Users\\Navin\\OneDrive\\Desktop\\BYU Winter 2025\\IS 401\\401TempleApp\\401TempleApp\\401TempleApp\\backend\\401TempleApp\\401TempleApp\\401TempleApp.csproj",
+      "packagesPath": "C:\\Users\\Navin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Navin\\OneDrive\\Desktop\\BYU Winter 2025\\IS 401\\401TempleApp\\401TempleApp\\401TempleApp\\backend\\401TempleApp\\401TempleApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/tracewilson/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Navin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2892,7 +2899,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -2942,7 +2950,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.405/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("401TempleApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1f8a4aef00c8419ffc963d0d9948f6bcd84780a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ab37c1feb02741edcd010a424f5b1933ad428ec")]
 [assembly: System.Reflection.AssemblyProductAttribute("401TempleApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("401TempleApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
