@@ -8,25 +8,23 @@ namespace _401TempleApp;
 public class Temple
 {
     [Key]
-    int TempleID { get; set; }
+    public int TempleId { get; set; }  // ✅ Make it public
+
     [Required]
-    string TempleName { get; set; }
+    public string TempleName { get; set; }  // ✅ Make it public
     
     [Required]
-    string TempleAddress { get; set; }
+    public string TempleAddress { get; set; }  // ✅ Make it public
     
     [Required]
-    string TempleState { get; set; }
+    public string TempleState { get; set; }  // ✅ Make it public
     
     [Required]
-    int TempleZip { get; set; }
-    
+    public int TempleZip { get; set; }  // ✅ Make it public
     
     [Required]
-    public int OrdinanceID { get; set; }
+    public int OrdinanceID { get; set; }  // ✅ Make it public
     
     [ForeignKey("OrdinanceID")]
-    public Ordinance Ordinance { get; set; }
-    
-    
+    public Ordinance Ordinance { get; set; }  // ✅ Make it public
 }

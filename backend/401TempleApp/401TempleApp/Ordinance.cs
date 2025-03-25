@@ -5,8 +5,8 @@ namespace _401TempleApp;
 public class Ordinance
 {
     [Key]
-    public int OrdinanceID { get; set; }
+    public int OrdinanceId { get; set; }
     
     [Required]
-    public string OrdinanceType { get; set; }
+    public string OrdinanceName { get; set; }
 }
