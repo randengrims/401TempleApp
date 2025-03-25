@@ -9,9 +9,9 @@ public class Appointment
     public int AppointmentID { get; set; }
     
     [Required]
-    public int UserID { get; set; }
+    public int UserId { get; set; }
     
-    [ForeignKey("UserID")]
+    [ForeignKey("UserId")]
     public User User { get; set; }
     
     [Required]
@@ -20,8 +20,8 @@ public class Appointment
     public string Date { get; set; } 
     
     [Required]
-    public int TempleID { get; set; }
+    public int TempleId { get; set; }
     
-    [ForeignKey("TempleID")]
+    [ForeignKey("TempleId")]
     public Temple Temple { get; set; }
 }
