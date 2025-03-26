@@ -1,0 +1,101 @@
+/* MapPage.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+nav {
+  background-color: #0078d4;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.map-container {
+  flex-grow: 1;
+  border: 2px solid #0078d4;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: none; /* Ensures it fills the screen width */
+  height: calc(
+    100vh - 60px
+  ); /* Adjusts height to fill the viewport, minus the nav or padding space */
+  max-height: 80vh;
+  margin: auto;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin: 10px;
+  background-color: white;
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  color: black;
+}
+
+.search-button {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #005ea2;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.loading-message {
+  color: #0078d4;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.search-results {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px;
+}
+
+.search-result-item {
+  padding: 10px;
+  background-color: #f3f4f6;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: #e5e7eb;
+}
