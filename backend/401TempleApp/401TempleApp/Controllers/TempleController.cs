@@ -21,7 +21,17 @@ public class TempleController : ControllerBase
 
             
         var something = query
-            .Include(a => a.Ordinance.OrdinanceName)   // Load related User data
+            .Select(t => new 
+            {
+                t.TempleId,
+                t.TempleName,
+                t.Ordinance.OrdinanceName,
+                t.TempleAddress,
+                t.TempleState,
+                t.TempleZip
+                
+            })
+            
             .ToList();
             
         var TotalNumTemples = query.Count();
@@ -65,8 +75,14 @@ public class TempleController : ControllerBase
     {
         var appointments = _templeContext.Appointments
             
-            .Include(a => a.User.Username)   // Load related User data
-            .Include(a => a.Temple.TempleName) // Load related Temple data
+            .Select(a => new 
+            {
+                a.AppointmentID,
+                a.Time,
+                a.Date,
+                TempleName = a.Temple.TempleName, // Only pull temple name
+                Username = a.User.Username        // Only pull username
+            })
             .ToList();
             
         return Ok(appointments);

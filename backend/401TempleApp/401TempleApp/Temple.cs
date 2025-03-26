@@ -23,7 +23,7 @@ public class Temple
     public int TempleZip { get; set; }  // ✅ Make it public
     
     [Required]
-    public int OrdinanceID { get; set; }  // ✅ Make it public
+    public int OrdinanceId { get; set; }  // ✅ Make it public
     
     [ForeignKey("OrdinanceID")]
     public Ordinance Ordinance { get; set; }  // ✅ Make it public
