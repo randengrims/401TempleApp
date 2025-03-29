@@ -6,6 +6,16 @@ function App() {
   return (
     <>
       <div className="app">
+        {/* 🔹 Top Banner with Login Link */}
+        <header className="top-banner">
+          <div className="banner-content">
+            <h2 className="logo">Temple Scheduler</h2>
+            <a href="/login" className="login-link">
+              Login
+            </a>
+          </div>
+        </header>
+
         <div className="container">
           <section
             className="hero"
