@@ -1,61 +1,80 @@
+import React from 'react';
+import { CalendarDays, MapPin, PlusCircle } from 'lucide-react';
 import './App.css';
-import { CalendarIcon, TicketIcon, SearchIcon } from 'lucide-react';
 
 function App() {
   return (
-    <div className="app">
-      {/* Hero Section */}
-      <div
-        className="hero"
-        style={{ backgroundImage: "url('/images/hero.jpg')" }}
-      >
-        <div className="overlay container">
-          <h1 className="hero-title">Experience Movies Like Never Before</h1>
-          <p className="hero-subtitle">
-            Find theatres, showtimes, and buy tickets in seconds.
-          </p>
-          <div className="search-container">
-            <input
-              type="text"
-              placeholder="Search for movies or locations"
-              className="search-input"
-            />
-            <button className="search-button">
-              <SearchIcon className="icon" />
-              Search
-            </button>
-          </div>
-        </div>
-      </div>
+    <>
+      <div className="app">
+        <div className="container">
+          <section
+            className="hero"
+            style={{
+              backgroundImage:
+                'url(https://www.churchofjesuschrist.org/imgs/7e3a0cfb922a11ecbfa3eeeeac1f0bf9dba9c6d8/full/320%2C/0/default)',
+            }}
+          >
+            <div className="overlay">
+              <h1 className="hero-title">Temple Appointment Scheduler</h1>
+              <p className="hero-subtitle">
+                Helping members of The Church of Jesus Christ of Latter-day
+                Saints schedule sacred ordinances
+              </p>
+            </div>
+          </section>
 
-      {/* Cards Section */}
-      <div className="cards-section container">
-        <div className="card">
-          <TicketIcon className="card-icon" />
-          <h3 className="card-title">Buy Tickets Online</h3>
-          <p>Skip the lines and reserve your seat with just a few clicks.</p>
-        </div>
-        <div className="card">
-          <CalendarIcon className="card-icon" />
-          <h3 className="card-title">Upcoming Releases</h3>
-          <p>
-            Stay ahead of the crowd with early access to blockbuster releases.
-          </p>
-        </div>
-        <div className="card">
-          <img src="/images/snacks.png" alt="Snacks" className="card-icon" />
-          <h3 className="card-title">Order Snacks Ahead</h3>
-          <p>
-            Get your favorite movie snacks ready before the movie even starts.
-          </p>
-        </div>
-      </div>
+          <section className="cards-section">
+            <div className="card">
+              <button className="card-title">
+                <PlusCircle className="card-icon" />
+                Schedule Sealing
+              </button>
+            </div>
+            <div className="card">
+              <button className="card-title">
+                <PlusCircle className="card-icon" />
+                Schedule Initiatory
+              </button>
+            </div>
+            <div className="card">
+              <button className="card-title">
+                <PlusCircle className="card-icon" />
+                Schedule Endowment
+              </button>
+            </div>
+            <div className="card">
+              <button className="card-title">
+                <PlusCircle className="card-icon" />
+                Schedule Baptisms
+              </button>
+            </div>
+          </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <p>&copy; 2025 CineHub. All rights reserved.</p>
-      </footer>
-    </div>
+          <section className="cards-section">
+            <div className="card">
+              <div className="card-title">
+                <CalendarDays className="card-icon" />
+                My Upcoming Appointments
+              </div>
+              <p>
+                No upcoming appointments. Schedule one above to get started!
+              </p>
+            </div>
+          </section>
+        </div>
+
+        <footer className="footer">
+          <a
+            href="https://www.churchofjesuschrist.org/temples/map"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-white hover:underline"
+          >
+            <MapPin className="icon" /> View Temple Map
+          </a>
+        </footer>
+      </div>
+    </>
   );
 }
 
