@@ -21,7 +21,7 @@ function App() {
             className="hero"
             style={{
               backgroundImage:
-                'url(https://www.churchofjesuschrist.org/imgs/7e3a0cfb922a11ecbfa3eeeeac1f0bf9dba9c6d8/full/320%2C/0/default)',
+                'url("/SaltLakeTemple.jpg")',
             }}
           >
             <div className="overlay">

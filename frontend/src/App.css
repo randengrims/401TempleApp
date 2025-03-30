@@ -18,6 +18,9 @@
 }
 
 .top-banner {
+  position: fixed;  
+  z-index: 1000; 
+  width: 96%;   
   background-color: #003366;
   color: white;
   padding: 1rem 2rem;
@@ -52,14 +55,14 @@
 .hero {
   height: 80vh;
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   position: relative;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 51, 102, 0.7);
+  background-color: rgba(50, 50, 50, 0.45); /* ← More opaque */
   display: flex;
   flex-direction: column;
   justify-content: center;
