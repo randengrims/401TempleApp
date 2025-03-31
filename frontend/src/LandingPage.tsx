@@ -143,7 +143,7 @@ export default function LandingPage() {
                                 display: "flex", 
                                 flexDirection: "column", 
                                 alignItems: "center"
-                            }}>
+                            }} onClick={() => navigate("/AppointmentScheduler")}>
                                 <PlusCircle className="card-icon" style={{ width: "32px", height: "32px", color: "#003366" }} />
                                 Schedule {type}
                             </button>

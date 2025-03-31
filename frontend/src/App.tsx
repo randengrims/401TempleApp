@@ -4,6 +4,7 @@ import LandingPage from './LandingPage';
 import LoginPage from './loginPage';
 import TemplesAttendedChart from './stats';
 import MapPage from './map';
+import AppointmentScheduler from './AppointmentScheduler';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/stats" element={<TemplesAttendedChart />} />
         <Route path="/map" element={<MapPage/>}/>
+        <Route path="/AppointmentScheduler" element={<AppointmentScheduler/>}/>
       </Routes>
     </Router>
   );

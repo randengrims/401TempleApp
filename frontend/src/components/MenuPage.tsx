@@ -28,6 +28,7 @@ function MenuPage() {
             <div className="row">
                 <div className="col-12">
                     <button 
+                        onClick={() => navigate("/AppointmentScheduler")}
                         className="btn w-100" 
                         style={{
                             color: "#333", 
@@ -89,23 +90,6 @@ function MenuPage() {
 
             {/* Row 3: Upcoming Reservations and Settings (Side-by-Side) */}
             <div className="row mb-3">
-                <div className="col-6">
-                    <button 
-                        className="btn w-100" 
-                        style={{
-                            color: "#333", 
-                            border: "1px solid #ddd", 
-                            borderRadius: "8px", 
-                            padding: "15px", 
-                            fontSize: "16px", 
-                            backgroundColor: "white", 
-                            fontWeight: "500",
-                            textAlign: "center",
-                        }}
-                    >
-                        Upcoming Reservations
-                    </button>
-                </div>
                 <div className="col-6">
                     <button 
                         onClick={() => navigate("/")}
