@@ -13,7 +13,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<TempleDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("TempleConnection")));
 
-builder.Services.AddCors();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy => policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
 
 var app = builder.Build();
 
@@ -24,7 +30,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(x=> x.WithOrigins("http://localhost:4005").AllowAnyMethod().AllowAnyHeader());
+app.UseCors(x=> x.WithOrigins("http://localhost:3000"));
 
 app.UseHttpsRedirection();
 

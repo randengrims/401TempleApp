@@ -1,101 +1,158 @@
-/* MapPage.css */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  #root {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  nav {
-    background-color: #0078d4;
-    color: white;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
-  .map-container {
-    flex-grow: 1;
-    border: 2px solid #0078d4;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 100%;
-    max-width: none; /* Ensures it fills the screen width */
-    height: calc(
-      100vh - 60px
-    ); /* Adjusts height to fill the viewport, minus the nav or padding space */
-    max-height: 80vh;
-    margin: auto;
-  }
-  
-  .search-bar {
-    display: flex;
-    gap: 10px;
-    margin: 10px;
-    background-color: white;
-  }
-  
-  .search-input {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    color: black;
-  }
-  
-  .search-button {
-    background-color: #0078d4;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .search-button:hover {
-    background-color: #005ea2;
-  }
-  
-  .error-message {
-    color: red;
-    font-weight: bold;
-    margin: 10px;
-  }
-  
-  .loading-message {
-    color: #0078d4;
-    font-weight: bold;
-    margin: 10px;
-  }
-  
-  .search-results {
-    list-style-type: none;
-    padding: 0;
-    margin: 10px;
-  }
-  
-  .search-result-item {
-    padding: 10px;
-    background-color: #f3f4f6;
-    margin: 5px 0;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .search-result-item:hover {
-    background-color: #e5e7eb;
-  }
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+nav {
+  background-color: #0078d4;
+  color: blue;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: blue;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.map-container {
+  flex-grow: 1;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: none;
+  height: calc(100vh - 60px);
+  max-height: 80vh;
+  margin: auto;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.search-input {
+  flex-grow: 1;
+  width: 250px; /* Fixed width */
+  padding: 10px;
+  border-radius: 5px; /* Mild rounded corners */
+  font-size: 16px;
+}
+
+.search-button {
+  margin-left: 5px;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px; /* Mild rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-button:hover {
+  background-color: #005ea2;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.loading-message {
+  color: #0078d4;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%; /* Make sure the dropdown takes up the full width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
+  border-radius: 5px;
+  z-index: 1000; /* Ensure dropdown is above other elements */
+}
+
+.search-result-item {
+  padding: 10px;
+  background-color: #f3f4f6;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background-color: #e5e7eb;
+}
+
+.map-container-wrapper {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+input,
+button {
+  user-select: text;
+}
+
+/* Style for location cards */
+.location-card {
+  padding: 15px;
+  background-color: black;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 5px;
+  cursor: pointer;
+}
+
+.location-card h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px;
+}
+
+.location-card p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.location-card:hover {
+  background-color: #e5e7eb; /* Add hover effect */
+  color: black;
+  border: black;
+}
+
+.location-card:active {
+  transform: scale(0.98); /* Add pressed effect */
+}
+
+
+
+

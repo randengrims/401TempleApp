@@ -12,6 +12,7 @@
   "dependencies": {
     "chart.js": "^4.4.8",
     "framer-motion": "^12.6.2",
+    "leaflet": "^1.9.4",
     "lucide-react": "^0.484.0",
     "react": "^19.0.0",
     "react-calendar": "^5.1.0",
