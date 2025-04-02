@@ -81,6 +81,7 @@ export default function LandingPage() {
 
             {/* Menu Component - Only Shows When menuOpen is True */}
             {menuOpen && <MenuPage />}
+            <br /><br /><br />
 
             <div className="container" style={{
                 display: "flex", 

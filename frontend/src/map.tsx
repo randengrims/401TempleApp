@@ -35,22 +35,7 @@ type Temple = {
 const geocodeAddress = async (address: string): Promise<Coordinates | null> => {
   try {
     const response = await fetch(
-      `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(address)}&format=json&countrycodes=US`
-    );
-    const data = await response.json();
-    if (Array.isArray(data) && data.length > 0) {
-      return { lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lon) };
-    }
-  } catch (error) {
-    console.error('Geocoding error:', error);
-  }
-  return null;
-};
-
-const geocodeZip = async (zip: number): Promise<Coordinates | null> => {
-  try {
-    const response = await fetch(
-      `https://nominatim.openstreetmap.org/search?postalcode=${zip}&format=json&countrycodes=US`
+      `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`
     );
     const data = await response.json();
     if (Array.isArray(data) && data.length > 0) {
@@ -78,6 +63,7 @@ const LocationMarker = ({ location }: { location: Coordinates | null }) => {
 };
 
 const MapPage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [location, setLocation] = useState<Coordinates | null>(null);
   const [start, setStart] = useState<Coordinates | null>(null);
   const [destination, setDestination] = useState<Coordinates | null>(null);
@@ -116,23 +102,15 @@ const MapPage = () => {
           }
           return response.json();
         })
-        .then(async (data) => {
-          const uniqueTemples: Temple[] = [];
+        .then((data) => {
+          const uniqueTemples = new Map();
           for (const temple of data.temples) {
-            if (
-              !uniqueTemples.some((t) => t.templeName === temple.templeName)
-            ) {
-              if (!temple.lat || !temple.lng) {
-                const coords = await geocodeZip(temple.templeZip);
-                if (coords) {
-                  temple.lat = coords.lat;
-                  temple.lng = coords.lng;
-                }
-              }
-              uniqueTemples.push(temple);
+            const key = `${temple.templeName}-${temple.templeAddress}`;
+            if (!uniqueTemples.has(key)) {
+              uniqueTemples.set(key, temple);
             }
           }
-          setTemples(uniqueTemples);
+          setTemples(Array.from(uniqueTemples.values()));
         })
         .catch((error) => setErrorMessage(error.message));
     }
@@ -143,23 +121,34 @@ const MapPage = () => {
         temple.templeName.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : [];
-  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleLocationCardClick = async (temple: Temple) => {
+    console.log('Geocoding temple address:', temple.templeAddress);
+    const preciseCoords = await geocodeAddress(temple.templeAddress);
+    if (preciseCoords) {
+      setDestination(preciseCoords);
+    } else {
+      setErrorMessage('Could not fetch accurate coordinates.');
+
+      // Automatically hide the error message after 3 seconds
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 2000); // 2000ms = 2 seconds
+    }
+  };
+
   const handleSearchSubmit = async () => {
-    // If the search term is an address
     const addressCoords = await geocodeAddress(searchTerm);
     if (addressCoords) {
       setDestination(addressCoords);
-      setSearchTerm(''); // Clear search term after location is selected
-    } else if (filteredResults.length > 0) {
-      // If it's a temple, set the destination
-      const temple = filteredResults[0];
-      if (temple.lat && temple.lng) {
-        setDestination({ lat: temple.lat, lng: temple.lng });
-      } else {
-        setErrorMessage('Coordinates missing for selected temple.');
-      }
+      setSearchTerm('');
     } else {
-      setErrorMessage('Address or temple not found.');
+      setErrorMessage('Address not found.');
+
+      // Automatically hide the error message after 3 seconds
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 2000); // 2000ms = 2 seconds
     }
   };
 
@@ -182,10 +171,22 @@ const MapPage = () => {
         console.log('Route found:', coordinates);
       } else {
         setErrorMessage('No route found.');
+
+        // Automatically hide the error message after 3 seconds
+        setTimeout(() => {
+          setErrorMessage(null);
+        }, 2000); // 2000ms = 2 seconds
+
         console.log('No route found.');
       }
     } catch {
       setErrorMessage('Error fetching route data.');
+
+      // Automatically hide the error message after 3 seconds
+      setTimeout(() => {
+        setErrorMessage(null);
+      }, 2000); // 2000ms = 2 seconds
+
       console.error('Error fetching route data.');
     }
   };
@@ -256,13 +257,18 @@ const MapPage = () => {
       <div className="search-bar">
         <input
           type="text"
-          placeholder="Search for address or temple..."
+          placeholder="Search for an address or Select a temple..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="search-input"
-          onFocus={() => setShowDropdown(true)}
+          onClick={() => setShowDropdown(true)}
         />
-        <button onClick={handleSearchSubmit}>Search</button>
+        <button
+          onClick={handleSearchSubmit}
+          onFocus={() => setShowDropdown(false)}
+        >
+          Search
+        </button>
         {showDropdown && (
           <ul className="search-results">
             {filteredResults.length > 0 && (
@@ -291,33 +297,27 @@ const MapPage = () => {
             )}
 
             {searchTerm.trim() === '' && temples.length > 0 && (
-              <div>
+              <div className="location-list">
                 <h4>Preloaded Temples</h4>
                 {temples.map((temple, index) => (
-                  <li
+                  <div
                     key={index}
-                    className="search-result-item"
-                    onClick={() => {
-                      setDestination({
-                        lat: temple.lat ?? 0,
-                        lng: temple.lng ?? 0,
-                      });
-                      setSearchTerm(temple.templeName);
-                      setShowDropdown(false);
-                    }}
+                    className="location-card"
+                    onClick={() => handleLocationCardClick(temple)}
                   >
-                    <div className="location-card">
-                      <h3>{temple.templeName}</h3>
-                      <p>Address: {temple.templeAddress}</p>
-                    </div>
-                  </li>
+                    <h3>{temple.templeName}</h3>
+                    <p>Address: {temple.templeAddress}</p>
+                  </div>
                 ))}
               </div>
             )}
           </ul>
         )}
       </div>
-      <div className="map-container-wrapper">
+      <div
+        className="map-container-wrapper"
+        onClick={() => setShowDropdown(false)}
+      >
         <MapContainer
           center={[40.2338, -111.6585]}
           zoom={13}
